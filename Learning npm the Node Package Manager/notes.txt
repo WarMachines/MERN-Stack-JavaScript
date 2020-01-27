@@ -1,0 +1,60 @@
+npm init                  // Initialize the package json or new npm directory
+npm install packageName   // package will install locally latest version
+npm install               // package will be install from package.json file (This is for the already created project)
+npm install -g packageName // This -g option will install package globally not at project scope
+npm install packageName@version   // This option will install package of version number you specified
+
+// Update
+npm update packageName   // Sometime works/ sometime not)
+npm install packageName  // it will update the package by removing the install package first and installing the latest)
+npm outdated             // It will list out the package which are outdated in the system or your project and whose's latest is available
+npm uninstall packageName // will uninstall the package 
+
+// package version
+example :
+"express" : "^10.2.2" or 
+"express" : "~10.2.2" or
+"express" : "10.2.2"
+
+when you install the packages form package.json
+^ will instruct npm to install latest package matching the major number means "10.x.x"
+~ will instruct npm to install latest package matching till minor number means "10.2.x"
+last option will install the specified version
+
+10.2.2 => majornumber : minornumber : patch
+
+// Package-lock.json
+it holds the dependency tree of any package you have install and what are the exact package with version number were installed while installing ypur package
+if you have package-lock.json will the project then npm will install exact package versions
+
+
+//Cache
+
+npm Cache verify  // will verify your npm cache
+npm Cache clean --force     // Troubleshooting may require you to clean up your cache. This command will clear all the npm cache
+
+
+
+// Audit
+npm audit    // will audit security vulnerabilty in the package you have install
+npm audit fix   // will fix the above issues wont work for everything need to install or review some or all the issue manually
+
+
+// Script
+
+They are like the script which may be long and gives you a small replaced word for it to run from npm, There are many defined by npm, check the website for them like start, test, pretest etc.
+They exist in package.json file under script properties.
+
+"start": "nodemon ./index.js --exec babel-node -e js"   // npm start  will run the actuall command written in front or the start, which could be an script, since start is npm's command we can use it liek npm start
+"startNodeMon": "nodemon ./index.js --exec babel-node -e js"    // startNodeMon is not known to npm so you have to run this script as "npm run startNodeMon"
+
+
+// npx
+
+npx allowed you to use a package withour downloading it like we do with npm.
+example
+npx -p @angular/cli ng new myapp     # this command will create a new angular app named my app without you have to actually install angular cli package
+
+// Other alternatives to npm
+1. yarn (introduced by facebook and uses a lock file to prevent any project issue as project gets passed around, inorder to use yarn you need to install yarn)
+2. ni 
